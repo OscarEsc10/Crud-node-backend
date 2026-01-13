@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique @db.VarChar(255)
+  password  String
+  role      Role      @default(USER)
+  createdAt DateTime  @default(now())
+
+  products  Product[]
+
+  @@index([email], name: "idx_users_email")
+}
+
+model Product {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(255)
+  price     Decimal   @db.Decimal(10, 2)
+  createdAt DateTime  @default(now())
+
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], name: "idx_products_user_id")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
