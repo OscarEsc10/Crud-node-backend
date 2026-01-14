@@ -12,22 +12,20 @@ model User {
   password  String
   role      Role      @default(USER)
   createdAt DateTime  @default(now())
-
   products  Product[]
 
-  @@index([email], name: "idx_users_email")
+  @@index([email], map: "idx_users_email")
 }
 
 model Product {
-  id        Int       @id @default(autoincrement())
-  name      String    @db.VarChar(255)
-  price     Decimal   @db.Decimal(10, 2)
-  createdAt DateTime  @default(now())
-
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  price     Decimal  @db.Decimal(10, 2)
+  createdAt DateTime @default(now())
   userId    Int
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@index([userId], name: "idx_products_user_id")
+  @@index([userId], map: "idx_products_user_id")
 }
 
 enum Role {
