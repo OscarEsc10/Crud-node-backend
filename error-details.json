@@ -1,0 +1,5 @@
+{
+  "message": "argument handler must be a function",
+  "stack": "TypeError: argument handler must be a function\n    at Route.<computed> [as post] (C:\\Users\\OSCAR\\Documents\\Crud-node-backend\\node_modules\\router\\lib\\route.js:228:15)\n    at Router.<computed> [as post] (C:\\Users\\OSCAR\\Documents\\Crud-node-backend\\node_modules\\router\\index.js:448:19)\n    at file:///C:/Users/OSCAR/Documents/Crud-node-backend/src/modules/users/user.routes.js:19:8\n    at ModuleJob.run (node:internal/modules/esm/module_job:274:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)",
+  "name": "TypeError"
+}

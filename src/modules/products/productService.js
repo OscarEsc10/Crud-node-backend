@@ -1,4 +1,4 @@
-import prisma from '../database.js';
+import prisma from '../../database.js';
 
 export class ProductService {
   async createProduct(productData) {
