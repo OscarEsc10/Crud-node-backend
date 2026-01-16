@@ -1,6 +1,5 @@
 import prisma from "../../database.js"
 import { AppError } from "../../../utils/AppError.js"
-import * as Password from "../../../utils/password.js"
 import bcrypt from "bcrypt";
 
 export class UserService {
@@ -51,7 +50,7 @@ export class UserService {
   }
 
   async updateUser(id, userData) {
-    await this.getUserById(id) // existence check
+    await this.getUserById(id)
 
     if (userData.password) {
       userData.password = await bcrypt.hash(userData.password, 10)

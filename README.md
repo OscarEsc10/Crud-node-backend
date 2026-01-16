@@ -19,7 +19,7 @@ A robust REST API built with Node.js, Express, and Prisma, featuring user manage
 ## 📦 Installation
 
 1.  **Clone the repository:**
-    ```bash
+    ```bashV
     git clone <repository-url>
     cd Crud-node-backend
     ```
